@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-cell-group": "../../utils/iView/cell-group/index",
+    "i-cell": "../../utils/iView/cell/index",
+    "i-icon": "../../utils/iView/icon/index"
+  },
+  "navigationBarTitleText":"店铺详情"
+}

@@ -1,0 +1,7 @@
+.swiper{
+  height: 70vw;
+}
+.swiper image{
+  height: 70vw;
+  width: 100vw;
+}

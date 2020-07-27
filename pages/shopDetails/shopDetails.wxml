@@ -1,0 +1,53 @@
+<view class="page tcg">
+  <view class="head">
+    <view class="logo">
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588503078069&di=337ced2972d6822afc50a15cce808535&imgtype=0&src=http%3A%2F%2Fww1.sinaimg.cn%2Flarge%2F4e704b16jw1f2m18epv0oj205k05kq3a.jpg"></image>
+    </view>
+    <view class="content">
+      <view class="name tcb">商家名称</view>
+      <view class="tag">
+        <text><text class="cuIcon-favorfill lg text-gray"></text>4.7</text>
+        <text><text class="cuIcon-shopfill lg text-gray"></text>品牌名店</text>
+        <text><text class="cuIcon-countdownfill lg text-gray"></text>3天内送达</text>
+      </view>
+      <button class="cu-btn sm attention">关注</button>
+    </view>
+  </view>
+  <view class="listItem">
+    <text class="cuIcon-location lg text-gray"></text>
+    <text class="content">广东省广州市白云区夏良路104号三楼B302-0BB,15号分店</text>
+    <text class="cuIcon-dianhua lg text-gray bl" bindtap="callophone"></text>
+  </view>
+
+  <view class="listItem">
+    <text class="cuIcon-safe lg text-gray"></text>
+    <text class="content tcb">查看经营证书</text>
+    <text class="cuIcon-right lg text-gray"></text>
+  </view>
+</view>
+
+<view class="page tcg">
+  <view class="listItem">
+    <text class="cuIcon-calendar lg text-gray"></text>
+    <text class="content tcb">开票信息：<text class="tcg">支持电子发票，纸质发票</text></text>
+  </view>
+
+  <view class="listItem">
+    <text class="cuIcon-time lg text-gray"></text>
+    <text class="content tcb">制作时间：<text class="tcg">0~3天（特殊定制除外）</text></text>
+  </view>
+
+</view>
+<view class="page tcg">
+
+  <view class="listItem">
+    <text class="cuIcon-roundcheck lg text-gray"></text>
+    <text class="content tcb">商家服务：<text class="tcg">免费维修、到店自取（享优惠）</text></text>
+  </view>
+
+  <view class="listItem">
+    <text class="cuIcon-notification lg text-gray"></text>
+    <text class="content tcb">商家公告：<text class="tcg">此系统仅作为模板参考，未接入真实数据，如有雷同，纯属偶然</text></text>
+  </view>
+  
+</view>

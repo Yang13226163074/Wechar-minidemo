@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-tag": "../../utils/iView/tag/index",
+    "i-sticky": "../../utils/iView/sticky/index",
+    "i-sticky-item": "../../utils/iView/sticky-item/index",
+    "i-icon": "../../utils/iView/icon/index"
+  }
+}

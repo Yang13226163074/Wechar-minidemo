@@ -1,0 +1,168 @@
+<view class="page">
+<!-- 顶部搜索框 -->
+  <view class="search">
+    <input confirm-type='search'></input>
+  </view>
+<!-- banner页 -->
+  <view class="banner">
+    <navigator>
+      <image src="/images/logo1.png"></image>
+      <text>智能家居</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo2.png"></image>
+      <text>沙发</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo3.png"></image>
+      <text>餐桌</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo4.png"></image>
+      <text>茶几</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo5.png"></image>
+      <text>电视柜</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo6.png"></image>
+      <text>衣柜</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo7.png"></image>
+      <text>床</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo8.png"></image>
+      <text>书架</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo9.png"></image>
+      <text>书桌</text>
+    </navigator>
+    <navigator>
+      <image src="/images/logo10.png"></image>
+      <text>其他</text>
+    </navigator>
+  </view>
+<!-- 推广广告 -->
+  <view class="activity">
+    <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=463453621,2207617721&fm=26&gp=0.jpg" mode="widthFix"></image>
+  </view>
+<!-- 推荐商家 -->
+  <view class="generalize">
+    <view class="merchant-title">
+      <image src="/images/tox.jpg"></image>
+      <view class="merchant-content">
+        <view class="merchant-name">测试店家</view>
+        <view class="merchant-tag">
+          <i-tag name="单个标签" color="red">良心</i-tag>
+          <i-tag name="单个标签" color="red">好评率高</i-tag>
+          <i-tag name="单个标签" color="red">价格实惠</i-tag>
+          <i-tag name="单个标签" color="red">运输快捷</i-tag>
+        </view>
+      </view>
+    </view>
+    <view class="merchant-main">
+      <text class="systematiName">热销家居，限时活动</text>
+      <view class="products">
+        <view class="productItem">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588428519568&di=c0481674adfa92957f2ff1df4d381543&imgtype=0&src=http%3A%2F%2Fimg2.99114.com%2Fgroup1%2FM00%2F37%2F37%2FwKgGTFkXP4uAJFEEAAQcQuLGUfY140_600_600.jpg" mode="aspectFill"></image>
+          <text class="productItem-name">沙发</text>
+          <view class="productItem-price">￥9999
+            <text>￥10000</text>
+          </view>
+        </view>
+        <view class="productItem">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588484742460&di=7d175e9b7c09fe21797807337eaebbf0&imgtype=0&src=http%3A%2F%2Fimg1n.soufunimg.com%2Fviewimage%2Fjiancai%2F201304%2F18%2F16%2F87810805d35d3511db80d5687d8a6697%2F700x1000.jpeg"
+            mode="aspectFill"></image>
+          <text class="productItem-name">简约风电视柜</text>
+          <view class="productItem-price">￥9999
+            <text>￥10000</text>
+          </view>
+        </view>
+        <view class="productItem">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588484819252&di=f6690f38c19fa345dd19d29e2eda9947&imgtype=0&src=http%3A%2F%2Fimage3.suning.cn%2Fuimg%2Fb2c%2Fnewcatentries%2F0070179412-000000010139903243_4_800x800.jpg" mode="aspectFill"></image>
+          <text class="productItem-name">多功能书桌</text>
+          <view class="productItem-price">￥9999
+            <text>￥10000</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- 附近商家 -->
+  <view class="merchantList">
+    <view class="merchantList-title">附近商家</view>
+    <view>
+      <!-- 弹窗 -->
+      <view class="merchantList-shade {{ popup?'':'hid' }}" catchtouchmove='ture'>
+        <!-- 排序 -->
+        <view class="sort" wx:if="{{ popupType=='sort' }}">
+          <view>综合排序</view>
+          <view>距离最近</view>
+          <view>评分最高</view>
+          <view>销量最高</view>
+        </view>
+        <!-- 筛选 -->
+        <view class="filter" wx:if="{{ popupType=='filter' }}">
+          <block wx:for="{{ filter }}" wx:key="index">
+            <view class="filter-item">
+              <view class="filter-name">{{ item.name }}</view>
+              <view class="filter-list">
+                <block wx:for="{{ item.list }}" wx:for-item="item2" wx:key="index2">
+                  <button class="{{ item2.checked?'btn':'btn-o' }}" bindtap="checkedFilter" data-parentId="{{ item.id }}" data-Id="{{ item2.id }}">{{ item2.name }}</button>
+                </block>
+              </view>
+            </view>
+          </block>
+          <view class="filter-foot">
+            <button class="btn-o" bindtap="closePopup">取消</button>
+            <button class="btn" >提交</button>
+          </view>
+        </view>
+      </view>
+      
+      <i-sticky scrollTop="{{scrollTop}}">
+        <i-sticky-item i-class="i-sticky-demo-title allMerchant-head">
+          <view slot="title" class="merchantList-search">
+            <view catchtap="cutPopup" data-type="sort">综合排序
+              <i-icon type="unfold" />
+            </view>
+            <view catchtap="closePopup">销量高</view>
+            <view catchtap="closePopup">定制化</view>
+            <view catchtap="closePopup">上门组装</view>
+            <view class="float-right" catchtap="cutPopup" data-type="filter">筛选</view>
+          </view>
+          <view slot="content" class="merchantList-main">
+            <block wx:for="{{ merchantList }}">
+              <navigator class="merchantList-item" url='/pages/merchant/merchant'>
+                <view class="img">
+                  <image src="{{ item.imgpath }}"></image>
+                </view>
+                <view class="content">
+                  <view class="name">{{ item.name }}</view>
+                  <view>
+                    <i-icon type="collection_fill" size="24" color="#ff0" class="star" />{{ item.grade }}
+                    <text class="sales">月销 {{ item.sales }} 件</text>
+                  </view>
+                  <view>主打产品:
+                    <block wx:for="{{ item.commodity }}">{{ index==0?item:"、"+item }}</block>
+                  </view>
+                  <view>
+                    <block wx:for="{{ item.tag }}">
+                      <i-tag name="{{ item }}" color="red">{{ item }}</i-tag>
+
+                    </block>
+                  </view>
+                </view>
+              </navigator>
+            </block>
+
+          </view>
+        </i-sticky-item>
+      </i-sticky>
+    </view>
+  </view>
+</view>

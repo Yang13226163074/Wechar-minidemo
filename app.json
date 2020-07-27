@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/default/default",
+    "pages/goods/goods",
+    "pages/merchant/merchant",
+    "pages/shopDetails/shopDetails",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor":"#B0E0E6",
+    "navigationBarTitleText": "家居商城模板",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

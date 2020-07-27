@@ -1,0 +1,181 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>商家详情</view>
+  </view>
+</view>
+<view style="height:350rpx;" class="header">
+  <view>
+    <view class="merchantData">
+      <navigator class="head" url="../shopDetails/shopDetails">
+        <view class="logo">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588503078069&di=337ced2972d6822afc50a15cce808535&imgtype=0&src=http%3A%2F%2Fww1.sinaimg.cn%2Flarge%2F4e704b16jw1f2m18epv0oj205k05kq3a.jpg"></image>
+        </view>
+        <view class="content">
+          <view class="name">商家名称</view>
+          <view class="tag">
+            <text><text class="cuIcon-favorfill lg text-gray"></text>4.7</text>
+            <text><text class="cuIcon-shopfill lg text-gray"></text>品牌名店</text>
+            <text><text class="cuIcon-countdownfill lg text-gray"></text>3天内送达</text>
+          </view>
+          <button class="cu-btn sm attention">关注</button>
+        </view>
+      </navigator>
+      <view class="notice text-cut">公告 : 此系统仅作为模板参考，未接入真实数据，如有雷同，纯属偶然</view>
+    </view>
+  </view>
+</view>
+<view class="banner" style="height:60rpx;">
+  <view class="{{ tabID == 'tab1'?'active':'' }}" bindtap="curTab" id="tab1">分类</view>
+  <view class="{{ tabID == 'tab2'?'active':'' }}" bindtap="curTab" id="tab2">专辑</view>
+  <view class="{{ tabID == 'tab3'?'active':'' }}" bindtap="curTab" id="tab3">评价</view>
+</view>
+<!-- 分类区 -->
+<view class="VerticalBox" style="display:{{ tabID == 'tab1'?'flex':'none' }}">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+    <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  <view class="main">
+    <view style="height:80rpx;" class="title">
+      {{ list[TabCur].name }}
+    </view>
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 490rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+      <view class="" wx:for="{{list}}" wx:key>
+        <view style="height:80rpx;" class="title" wx:if="{{ index != 0 }}">
+          {{ item.name }}
+        </view>
+        <view id="main-{{index}}">
+        <block wx:for="{{item.data}}" wx:key wx:for-item="item2">
+          <navigator class="productItem" url="../../goods/goods?id={{ item2.id }}">
+            <view class="img">
+              <image src="{{ item2.imgpath }}" class=""></image>
+            </view>
+            <view class="content">
+              <view class="name">{{ item2.name }}</view>
+              <view class="tag">
+                <block wx:for="{{ item2.tag }}" wx:key wx:for-item="item3">
+                  <i-tag name="单个标签" color="red">{{ item3 }}</i-tag>
+                </block>
+              </view>
+              <view class="price">
+                <text class="now text-price text-red">{{ item2.price }}</text>
+                <text class="old text-price">{{ item2.price }}</text>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 专辑区 -->
+<view class="VerticalBox2 album" style="display:{{ tabID == 'tab2'?'block':'none' }}">
+  <view class="albumHead">
+    <view class="btn">全部</view>
+    <view class="btn-o">客厅</view>
+    <view class="btn-o">卧室</view>
+    <view class="btn-o">厨房</view>
+    <view class="btn-o">储物</view>
+  </view>
+  <view class="albumMain">
+    <block wx:for="{{3}}" >
+    <view class="albumItem">
+      <view class="head">红木家具，淳朴实用，大气示人</view>
+      <view class='content'>
+        <view>
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592131190160&di=056e3611fc29152746563b2751a71913&imgtype=0&src=http%3A%2F%2Fpic.9zx.com%2Fupload%2Fimages%2Fnews%2F201706%2F1498721215620784.jpg"   mode="aspectFill"></image>
+          <view class="name">【限购】红木客厅桌椅，超值家具</view>
+          <text class="price">￥65555</text>
+        </view>
+        <view>
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592134981939&di=5ba66691151906f0aa438d8cd1a15b2f&imgtype=0&src=http%3A%2F%2Fwww.biyebi.com%2FAttachments%2Fbaike%2F201606%2F5750fde25b914.jpg"   mode="aspectFill"></image>
+          <view class="name">【限购】红木客厅桌椅，超值家具</view>
+          <text class="price">￥2345</text>
+        </view>
+        <view>
+          <image src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1824795394,2613732877&fm=26&gp=0.jpg"   mode="aspectFill"></image>
+          <view class="name">【限购】红木客厅桌椅，超值家具</view>
+          <text class="price">￥6677</text>
+        </view>
+      </view>
+       <view class="foot">
+        <view class="price">折扣价:
+          <text class="now text-price text-red">10000</text>
+          <text class="old text-price">10000</text>
+        </view>
+        <button class="btn">立即购买</button>
+      </view>
+    </view>
+    </block>
+  </view>
+</view>
+<!-- 评价区 -->
+<view class="VerticalBox3" style="display:{{ tabID == 'tab3'?'block':'none' }}">
+  <view class="grade">
+    <view class="left">
+      <view class="num">{{ score.comprehensive }}</view>
+      <view class="name">商家评价</view>
+    </view>
+
+    <view class="center">
+      <view>
+        <text class="name">质量</text>
+        <i-cell>
+          <i-rate value="{{ score.quality }}">{{ score.quality }}</i-rate>
+        </i-cell>
+      </view>
+      <view>
+        <text class="name">服务</text>
+        <i-cell>
+          <i-rate value="{{ score.service }}">{{ score.service }}</i-rate>
+        </i-cell>
+      </view>
+    </view>
+
+    <view class="right">
+      <view class="num">{{ score.speed }}</view>
+      <view class="name">制作速度</view>
+    </view>
+
+  </view>
+  <view class="rank">
+  <block wx:for="{{ grade.classify }}">
+    <button class="{{ index==0?'btn':'btn-o' }}">{{ item.name }}({{ item.num }})</button>
+  </block>
+  </view>
+
+  <view class="gradeList">
+    <block wx:for="{{grade.list}}">
+    <view class="gradeItem">
+      <view class="head">
+        <image src="{{ item.userpath }}"></image>
+        <view class="user">
+            <view class="name">{{ item.name }}</view>
+            <i-cell>
+              <i-rate value="{{ item.score }}" size='15'>{{ item.productName }}</i-rate>
+            </i-cell>
+        </view>
+        <view class="time">{{ item.time }}</view>
+      </view>
+      <view class="content">
+        <view class="text">{{ item.content }}</view>
+        <view class="img">
+        <block wx:for="{{item.img}}">
+          <image src="{{ item }}" mode="aspectFill"></image>
+        </block>
+        </view>
+      </view>
+      <view class="reply">
+        商家回复({{ item.replyDay > 0?item.replyDay+'天后':'当天' }})：{{ item.reply }}
+      </view>
+    </view>
+    </block>
+
+  </view>
+
+</view>

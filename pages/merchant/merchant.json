@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-tag": "../../utils/iView/tag/index",
+    "i-rate": "../../utils/iView/rate/index"
+  },
+  "navigationStyle": "custom"
+}
